@@ -1,0 +1,784 @@
+timestamp: 2015-11-10T21:36:02.141585
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2015-11-10T21:36:02.148831
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2015-11-10T21:36:02.158229
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T21:36:02.172488
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2015-11-10T21:36:02.179971
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2015-11-10T21:36:02.186849
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2015-11-10T22:32:57.797434
+ALTER TABLE auth_user ADD city CHAR(512);
+timestamp: 2015-11-10T22:32:57.803074
+ALTER TABLE auth_user ADD mothertongue CHAR(512);
+timestamp: 2015-11-10T22:32:57.805315
+ALTER TABLE auth_user ADD gender TEXT;
+timestamp: 2015-11-10T22:32:57.807999
+ALTER TABLE auth_user ADD pic CHAR(512);
+timestamp: 2015-11-10T22:32:57.812900
+ALTER TABLE auth_user ADD religion CHAR(512);
+timestamp: 2015-11-10T22:32:57.814900
+ALTER TABLE auth_user ADD bdate DATE;
+timestamp: 2015-11-10T22:32:57.816834
+ALTER TABLE auth_user ADD country CHAR(512);
+timestamp: 2015-11-10T22:32:57.821075
+ALTER TABLE auth_user ADD phoneno CHAR(512);
+timestamp: 2015-11-10T22:32:57.822863
+ALTER TABLE auth_user ADD caste CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-11-10T23:01:42.092831
+CREATE TABLE Travelling(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-11-10T23:16:02.018138
+CREATE TABLE Movies(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.026208
+CREATE TABLE Music(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.032317
+CREATE TABLE Fitness(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.037024
+CREATE TABLE Singing(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.041622
+CREATE TABLE Dancing(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.045997
+CREATE TABLE Photography(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.051511
+CREATE TABLE Painting(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.055939
+CREATE TABLE Reading(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:16:02.059689
+CREATE TABLE Chinese(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+success!
+timestamp: 2015-11-10T23:17:08.045428
+CREATE TABLE SouthIndian(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.051197
+CREATE TABLE Continental(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.054688
+CREATE TABLE Italian(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.059360
+CREATE TABLE Running(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.063467
+CREATE TABLE Swimming(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.068074
+CREATE TABLE Badminton(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.072248
+CREATE TABLE Cricket(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-11-10T23:17:08.076767
+CREATE TABLE Basketball(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+success!
+timestamp: 2015-11-10T23:17:32.972903
+CREATE TABLE WorkOut(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+success!
+success!
+success!
+timestamp: 2015-11-10T23:30:54.992828
+CREATE TABLE Interests(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Singing TEXT,
+    Dancing TEXT,
+    Phtography TEXT,
+    Painting TEXT,
+    Reading TEXT,
+    Travelling TEXT,
+    Movies TEXT,
+    Music TEXT,
+    Fitness TEXT,
+    Running TEXT,
+    Swimming TEXT,
+    Badminton TEXT,
+    Cricket TEXT,
+    Basketball TEXT,
+    WorkOut TEXT,
+    SouthIndian TEXT,
+    Chinese TEXT,
+    Continental TEXT,
+    Italian TEXT
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-11-11T02:28:21.365713
+ALTER TABLE auth_user ADD height DOUBLE;
+timestamp: 2015-11-11T02:28:21.372496
+ALTER TABLE auth_user ADD drink CHAR(512);
+timestamp: 2015-11-11T02:28:21.374745
+ALTER TABLE auth_user ADD diet CHAR(512);
+timestamp: 2015-11-11T02:28:21.376761
+ALTER TABLE auth_user ADD skintone CHAR(512);
+timestamp: 2015-11-11T02:28:21.380088
+ALTER TABLE auth_user ADD bodytype CHAR(512);
+timestamp: 2015-11-11T02:28:21.383972
+ALTER TABLE auth_user ADD smoke CHAR(512);
+success!
+success!
+success!
+success!
+timestamp: 2015-11-11T02:38:43.922489
+ALTER TABLE auth_user ADD likes INTEGER;
+timestamp: 2015-11-11T02:38:43.932829
+ALTER TABLE auth_user ADD spams INTEGER;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-11-11T02:44:00.071313
+ALTER TABLE Interests ADD userid INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-11-11T18:39:10.755090
+ALTER TABLE auth_user ADD premium CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
