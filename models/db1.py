@@ -2,7 +2,7 @@
 
 # to track user interests
 db.define_table('Interests',
-	Field('userId','reference auth_user'),
+	Field('userId','reference auth_user',unique=True,readable=False,writable=False),
 	Field('Singing','text',requires=IS_IN_SET(('Yes','No'))),
 	Field('Dancing','text',requires=IS_IN_SET(('Yes','No'))),
 	Field('Phtography','text',requires=IS_IN_SET(('Yes','No'))),
@@ -22,91 +22,6 @@ db.define_table('Interests',
 	Field('Chinese','text',requires=IS_IN_SET(('Yes','No'))),
 	Field('Continental','text',requires=IS_IN_SET(('Yes','No'))),
 	Field('Italian','text',requires=IS_IN_SET(('Yes','No')))
-	)
-
-
-# Interests
-
-db.define_table('Travelling',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Movies',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Music',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Fitness',
-	Field('userId','reference auth_user')
-	)
-
-#Hobbies
-
-db.define_table('Singing',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Dancing',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Photography',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Painting',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Reading',
-	Field('userId','reference auth_user')
-	)
-
-#Cuisine
-
-db.define_table('Chinese',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('SouthIndian',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Continental',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Italian',
-	Field('userId','reference auth_user')
-	)
-
-#Sports/Fitness
-
-db.define_table('Running',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Swimming',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Badminton',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Cricket',
-	Field('userId','reference auth_user')
-	)
-
-db.define_table('Basketball',
-	Field('userId','reference auth_user')
-	)
-	
-db.define_table('WorkOut',
-	Field('userId','reference auth_user')
 	)
 
 

@@ -78,7 +78,7 @@ auth.settings.extra_fields['auth_user']=[
     Field('diet',requires=IS_IN_SET(('Veg','Non-veg'))),
     Field('likes','integer',readable=False,writable=False,default=0),
     Field('spams','integer',readable=False,writable=False,default=0),
-    Field('premium',requires=IS_IN_SET(('0','1')),readable=False,writable=False)
+    Field('premium',requires=IS_IN_SET(('0','1')),readable=False,writable=False,default='0')
 ]
 
 
