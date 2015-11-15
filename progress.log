@@ -1,3 +1,16 @@
 [2015-11-10 21:35:33] START
 [2015-11-10 21:38:00] CREATE db1.py: 0
 [2015-11-11 03:30:24] CREATE default/home.html: 0
+[2015-11-13 20:04:19] DELETE iConnect/views/default/home.html: -4
+[2015-11-13 20:04:33] CREATE default/homeFree.html: 0
+[2015-11-13 21:47:55] CREATE default/profile.html: 0
+[2015-11-13 23:38:38] DELETE iConnect/views/default/profile.html: -31
+[2015-11-13 23:38:52] CREATE default/freeProfile.html: 0
+[2015-11-13 23:42:25] CREATE default/myProfile.html: 0
+[2015-11-14 01:48:24] DELETE iConnect/views/default/myProfile.html: -48
+[2015-11-14 01:48:38] CREATE default/myProfileFree.html: 0
+[2015-11-14 01:59:35] CREATE default/goPremium.html: 0
+[2015-11-14 02:11:27] CREATE default/payment.html: 0
+[2015-11-14 02:24:03] CREATE default/myProfilePremium.html: 0
+[2015-11-14 12:04:38] CREATE default/premiumProfile.html: 0
+[2015-11-14 19:33:54] CREATE default/homePremium.html: 0

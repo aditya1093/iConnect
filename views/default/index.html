@@ -1,7 +1,22 @@
 {{extend 'layout.html'}}
-<div>
-<a href="user/login" class="btn btn-primary">Login</a>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<h1 style="font-family:cursive;text-align:center;font-size:5em;color: #FF8C00;">iConnect</h1>
+	</div>
 </div>
-<div>
-<a href="user/register" class="btn btn-primary">Register</a>
+
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<img src="{{=URL('static','images/logo1.jpg')}}" alt="..." class="img-circle">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-2 col-md-offset-5">
+		<div>
+			<a href="user/login" class="btn btn-warning">Login</a>
+			<a href="user/register" class="btn btn-warning">Register</a>
+		</div>
+	</div>
 </div>

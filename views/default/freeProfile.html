@@ -1,0 +1,35 @@
+{{extend 'layout.html'}}
+<ol class="breadcrumb">
+  <li><a href="{{=URL('default','homeFree')}}">Home</a></li>
+  <li class="active">{{=userInfo[0].first_name}} {{=userInfo[0].last_name}}'s Profile</li>
+</ol>
+
+<div class="page-header">
+  <h1>{{=userInfo[0].first_name}} {{=userInfo[0].last_name}} </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="#" class="thumbnail">
+      <img src="/iConnect/default/download/{{=userInfo[0].pic}}" alt="...">
+    </a>
+  </div>
+  <div class="col-md-9">
+  	<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Basic Info</h3>
+
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Age :  {{=userInfo[0].age}}</li>  	
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Mother Tongue :  {{=userInfo[0].motherTongue}}</li>
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Religion :  {{=userInfo[0].religion}}</li>
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Caste :  {{=userInfo[0].caste}}</li>
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> City :  {{=userInfo[0].city}}</li>
+  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Country :  {{=userInfo[0].country}}</li>
+</ul>
+  </div>
+</div>
+  </div>
+</div>

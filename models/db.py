@@ -63,6 +63,7 @@ plugins = PluginManager()
 auth.settings.extra_fields['auth_user']=[
     Field('gender',requires=IS_IN_SET(('Male','Female'))),
     Field('bDate','date'),
+    Field('age','integer',requires=IS_NOT_EMPTY()),
     Field('motherTongue',requires=IS_NOT_EMPTY()),
     Field('religion',requires=IS_NOT_EMPTY()),
     Field('caste',requires=IS_NOT_EMPTY()),
@@ -83,8 +84,11 @@ auth.settings.extra_fields['auth_user']=[
 
 
 #handle new redirection after login/register
-auth.settings.login_next=URL('iConnect','default','home')
-auth.settings.register_next=URL('iConnect','default','home')
+auth.settings.login_next=URL('iConnect','default','homeFree')
+auth.settings.register_next=URL('iConnect','default','homeFree')
+auth.settings.change_password_next=URL('iConnect','default','homeFree')
+
+
 
 
 
@@ -94,9 +98,14 @@ auth.define_tables(username=False, signature=False)
 
 ## configure email
 mail = auth.settings.mailer
-mail.settings.server = 'logging' if request.is_local else myconf.take('smtp.server')
-mail.settings.sender = myconf.take('smtp.sender')
-mail.settings.login = myconf.take('smtp.login')
+mail.settings.server = 'smtp.gmail.com:587'
+mail.settings.sender = 'subash.k3110@gmail.com'
+mail.settings.login = 'subash.k3110@gmail.com:xjpwwfdzrhfodwym'
+
+#if mail.send(to=['singhal.abhi0009@gmail.com'],subject='test',message='hello'):
+ #   response.flash = 'email sent'
+#else:
+ #       response.flash = 'sent failed'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False

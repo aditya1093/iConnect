@@ -1,0 +1,53 @@
+{{extend 'layout.html'}}
+<ol class="breadcrumb">
+  <li><a href="{{=URL('default','homeFree')}}">Home</a></li>
+  <li class="active">My Profile</li>
+</ol>
+<div class="page-header">
+  <h1>{{=myInfo.first_name}} {{=myInfo.last_name}} <div class="glyphicon glyphicon-fire"></div></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="#" class="thumbnail">
+      <img src="/iConnect/default/download/{{=myInfo.pic}}" alt="...">
+    </a>
+    <div>
+  		<div class="panel panel-warning">
+  			<div class="panel-heading">
+    			<h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Personality</h3>
+
+  			</div>
+  			<div class="panel-body">
+    			<ul class="list-group">
+  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Height:  {{=myInfo.height}}</li>
+  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Body Type :  {{=myInfo.bodyType}}</li>
+					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Skin Tone :  {{=myInfo.skinTone}}</li>
+  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Smoking :  {{=myInfo.smoke}}</li>
+  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Drinking :  {{=myInfo.drink}}</li>
+	  				<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Diet :  {{=myInfo.diet}}</li>
+				</ul>
+  			</div>
+		</div>
+	</div>
+  </div>
+
+
+<div class="col-md-9">
+	<div class="panel panel-warning">
+  		<div class="panel-heading">
+	    	<h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Basic Info</h3>
+		</div>
+  	<div class="panel-body">
+    	<ul class="list-group">
+  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Age :  {{=myInfo.age}}</li>
+  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Mother Tongue :  {{=myInfo.motherTongue}}</li>
+  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Religion :  {{=myInfo.religion}}</li>
+  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Caste :  {{=myInfo.caste}}</li>
+  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> City :  {{=myInfo.city}}</li>
+			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Country :  {{=myInfo.country}}</li>
+		</ul>
+  	</div>
+  	</div>
+
+</div>

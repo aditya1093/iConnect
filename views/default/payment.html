@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+<form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in rupees)</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+  <a href="{{=URL('default','goPremium')}}" type="submit" class="btn btn-success">Transfer cash</a>
+</form>
