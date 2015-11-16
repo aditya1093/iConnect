@@ -13,41 +13,110 @@
       <img src="/iConnect/default/download/{{=myInfo.pic}}" alt="...">
     </a>
     <div>
-  		<div class="panel panel-warning">
-  			<div class="panel-heading">
-    			<h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Personality</h3>
-
-  			</div>
-  			<div class="panel-body">
-    			<ul class="list-group">
-  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Height:  {{=myInfo.height}}</li>
-  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Body Type :  {{=myInfo.bodyType}}</li>
-					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Skin Tone :  {{=myInfo.skinTone}}</li>
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div class="glyphicon glyphicon-phone"></div> Contact</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item"><div class="glyphicon glyphicon-pushpin"></div> {{=myInfo.email}}</li>
+            <li class="list-group-item"><div class="glyphicon glyphicon-pushpin"></div> {{=myInfo.phoneNo}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+  
+    <div>
+    	<div class="panel panel-warning">
+    		<div class="panel-heading">
+      		<h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Personality</h3>
+        </div>
+        <div class="panel-body">
+      		<ul class="list-group">
+    				<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Height:  {{=myInfo.height}}</li>
+    				<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Body Type :  {{=myInfo.bodyType}}</li>
+  				  <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Skin Tone :  {{=myInfo.skinTone}}</li>
   					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Smoking :  {{=myInfo.smoke}}</li>
-  					<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Drinking :  {{=myInfo.drink}}</li>
-	  				<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Diet :  {{=myInfo.diet}}</li>
-				</ul>
-  			</div>
-		</div>
-	</div>
+    				<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Drinking :  {{=myInfo.drink}}</li>
+  	  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Diet :  {{=myInfo.diet}}</li>
+  				</ul>
+    		</div>
+  		</div>
+	  </div>
   </div>
 
 
-<div class="col-md-9">
-	<div class="panel panel-warning">
+  <div class="col-md-9">
+	  <div class="panel panel-warning">
   		<div class="panel-heading">
 	    	<h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Basic Info</h3>
-		</div>
-  	<div class="panel-body">
-    	<ul class="list-group">
-  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Age :  {{=myInfo.age}}</li>
-  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Mother Tongue :  {{=myInfo.motherTongue}}</li>
-  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Religion :  {{=myInfo.religion}}</li>
-  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Caste :  {{=myInfo.caste}}</li>
-  			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> City :  {{=myInfo.city}}</li>
-			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Country :  {{=myInfo.country}}</li>
-		</ul>
+		  </div>
+  	  <div class="panel-body">
+    	  <ul class="list-group">
+    			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Age :  {{=myInfo.age}}</li>
+    			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Mother Tongue :  {{=myInfo.motherTongue}}</li>
+    			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Religion :  {{=myInfo.religion}}</li>
+    			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Caste :  {{=myInfo.caste}}</li>
+    			<li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> City :  {{=myInfo.city}}</li>
+			     <li class="list-group-item"><div class="glyphicon glyphicon-hand-right"></div> Country :  {{=myInfo.country}}</li>
+		    </ul>
+  	  </div>
   	</div>
-  	</div>
+  </div>
 
+  {{if myInfo.premium=='1':}}
+  <div class="col-md-9">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div class="glyphicon glyphicon-heart-empty"></div> Interests</h3>
+        </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item"> South Indian {{if myIntr.SouthIndian=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.SouthIndian=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Chinese {{if myIntr.Chinese=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Chinese=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Continental {{if myIntr.Continental=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Continental=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Italian {{if myIntr.Italian=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Italian=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="col-md-3">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item"> Reading {{if myIntr.Reading=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Reading=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Travelling {{if myIntr.Travelling=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Travelling=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Movies {{if myIntr.Movies=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Movies=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Music {{if myIntr.Music=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Movies=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item"> Running {{if myIntr.Running=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Running=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Swimming {{if myIntr.Swimming=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Swimming=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Badminton {{if myIntr.Badminton=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Badminton=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Workout {{if myIntr.WorkOut=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.WorkOut=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item"> Singing {{if myIntr.Singing=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Singing=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Dancing {{if myIntr.Dancing=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Dancing=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Painting {{if myIntr.Painting=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Painting=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Photography {{if myIntr.Photography=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if myIntr.Photography=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{pass}}
 </div>

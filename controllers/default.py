@@ -155,6 +155,7 @@ def myProfileFree():
 @auth.requires_login()
 def myProfilePremium():
     myInfo=auth.user
+    myIntr=db(db.Interests.userId==auth.user.id).select().first()
     return locals()
 
 
@@ -197,10 +198,28 @@ def goPremium():
         redirect(URL('homePremium'))
     return locals()
 
+
+
 #making dummy payment
 @auth.requires_login()
 def payment():
     return locals()
+
+#handling likes
+def onLike():
+    row = db(db.auth_user.id==request.args[0]).select().first()
+    likes=row.likes
+    likes=likes+1
+    row.update_record(likes=likes)
+    return " "+str(likes)
+
+#handling spams
+def onSpam():
+    row = db(db.auth_user.id==request.args[0]).select().first()
+    spams=row.spams
+    spams=spams+1
+    row.update_record(spams=spams)
+    return " "+str(spams)
 
 
 @cache.action()

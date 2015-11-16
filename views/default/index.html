@@ -1,22 +1,25 @@
 {{extend 'layout.html'}}
+<style>
+body  {
+    background-image: url('{{=URL('static','images/back.jpg')}}');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<h1 style="font-family:cursive;text-align:center;font-size:5em;color: #FF8C00;">iConnect</h1>
+		<h1 style="font-family:cursive;text-align:center;color:black;font-size:70px;"><strong>iConnect</strong></h1>
 	</div>
 </div>
 
 
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		<img src="{{=URL('static','images/logo1.jpg')}}" alt="..." class="img-circle">
-	</div>
-</div>
+
 
 <div class="row">
-	<div class="col-md-2 col-md-offset-5">
+	<div class="col-md-4 col-xs-4 col-md-offset-5">
 		<div>
-			<a href="user/login" class="btn btn-warning">Login</a>
-			<a href="user/register" class="btn btn-warning">Register</a>
+			<a href="user/login" class="btn btn-default">Login</a>
+			<a href="user/register" class="btn btn-default">Register</a>
 		</div>
 	</div>
 </div>
