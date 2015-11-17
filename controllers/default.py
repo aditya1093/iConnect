@@ -162,7 +162,7 @@ def myProfilePremium():
 #suggested profile visibilty for a free user
 @auth.requires_login()
 def freeProfile():
-    row=db(db.auth_user.id==auth.user.id).select().first()
+    row=db(db.auth_user.id==request.args[0]).select().first()
     if row.premium=='1':
         redirect(URL('default','premiumProfile',args=request.args))
     userInfo=db(db.auth_user.id==request.args[0]).select()
@@ -173,11 +173,14 @@ def freeProfile():
 def premiumProfile():
     userInfo=db(db.auth_user.id==request.args[0]).select()
     userIntr=db(db.Interests.userId==request.args[0]).select().first()
+    myIntr=db(db.Interests.userId==auth.user.id).select().first()
+    myInfo=auth.user
     return locals()
 
 
 def myValidation(form):
     form.vars.userId=auth.user.id
+
 
 
 @auth.requires_login()
@@ -205,6 +208,7 @@ def goPremium():
 def payment():
     return locals()
 
+
 #handling likes
 def onLike():
     row = db(db.auth_user.id==request.args[0]).select().first()
@@ -221,6 +225,25 @@ def onSpam():
     row.update_record(spams=spams)
     return " "+str(spams)
 
+#send maild
+def sendMail():
+    row = db(db.auth_user.id==request.args[0]).select().first()
+    fname=row.first_name
+    lname=row.last_name
+    mailId=row.email
+    form=SQLFORM.factory(Field('Subject','string',requires=IS_NOT_EMPTY()),Field('Body','text',requires=IS_NOT_EMPTY()))
+    
+    if form.accepts(request,session):
+        subject=form.vars.Subject
+        body=form.vars.Body
+        email=row.email
+        if mail.send(to=[email],subject=subject,message=body):
+            response.flash = 'email sent'
+        else:
+            response.flash = 'sent failed'
+        redirect(URL('default','premiumProfile',args=[request.args[0]]))
+
+    return locals()
 
 @cache.action()
 def download():

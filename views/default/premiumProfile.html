@@ -1,4 +1,5 @@
 {{extend 'layout.html'}}
+
 <ol class="breadcrumb">
   <li><a href="{{=URL('default','homeFree')}}">Home</a></li>
   <li class="active">{{=userInfo[0].first_name}} {{=userInfo[0].last_name}}'s Profile</li>
@@ -21,7 +22,7 @@
           <button onclick="ajax('{{=URL('default','onSpam',args=[userInfo[0].id])}}',[],'spamCount')" type="button" class="btn btn-warning"><div id="spamCount" class="glyphicon glyphicon-ban-circle"></button>
         </p>
       </div>
-      <div class="panel panel-danger">
+      <div class="panel panel-warning">
         <div class="panel-heading">
           <h3 class="panel-title"><div class="glyphicon glyphicon-phone"></div> Contact</h3>
         </div>
@@ -34,7 +35,24 @@
       </div>
     </div>
     <div>
-      <div class="panel panel-danger">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div class="glyphicon glyphicon-envelope"></div> Mail</h3>
+
+        </div>
+        <div class="panel-body">
+          <div class="center">
+        <p>
+          <a href="{{=URL('default','sendMail',args=[userInfo[0].id])}}"><button type="button" class="btn btn-info"><div class="glyphicon glyphicon-pencil"></div> Contact {{=userInfo[0].first_name}}</button></a>
+        </p>
+      </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="panel panel-warning">
         <div class="panel-heading">
           <h3 class="panel-title"><div class="glyphicon glyphicon-eye-open"></div> Personality</h3>
 
@@ -51,21 +69,11 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title"><div class="glyphicon glyphicon-envelope"></div> Mail</h3>
-
-        </div>
-        <div class="panel-body">
-          
-        </div>
-      </div>
-    </div>
+    
   </div>
 
   <div class="col-md-9">
-  	<div class="panel panel-danger">
+  	<div class="panel panel-warning">
       <div class="panel-heading">
         <h3 class="panel-title"><div class="glyphicon glyphicon-list-alt"></div> Basic Info</h3>
       </div>
@@ -84,7 +92,7 @@
 
   {{if userInfo[0].premium=='1':}}
   <div class="col-md-9">
-    <div class="panel panel-danger">
+    <div class="panel panel-warning">
         <div class="panel-heading">
           <h3 class="panel-title"><div class="glyphicon glyphicon-heart-empty"></div> Interests</h3>
         </div>
@@ -117,7 +125,7 @@
               <li class="list-group-item"> Running {{if userIntr.Running=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if userIntr.Running=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
               <li class="list-group-item"> Swimming {{if userIntr.Swimming=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if userIntr.Swimming=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
               <li class="list-group-item"> Badminton {{if userIntr.Badminton=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if userIntr.Badminton=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
-              <li class="list-group-item"> Workout {{if userIntr.WorkOut=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if userIntr.WorkOut=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
+              <li class="list-group-item"> Fitness {{if userIntr.Fitness=='Yes':}} <div class="glyphicon glyphicon-thumbs-up pull-right"></div>{{pass}} {{if userIntr.Fitness=='No':}} <div class="glyphicon glyphicon-thumbs-down pull-right"></div>{{pass}} </li>
             </ul>
           </div>
         </div>
@@ -137,4 +145,35 @@
     </div>
   </div>
   {{pass}}
+  <div class="col-md-6">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title"><div class="glyphicon glyphicon-ok"></div> Matches <div class="glyphicon glyphicon-remove"></div> Mismatches</h3>
+      </div>
+      <div class="col-md-6 panel-body">
+        <ul class="list-group">
+          <li {{if myInfo.bodyType==userInfo[0].bodyType:}} class="list-group-item list-group-item-success" {{pass}}{{if myInfo.bodyType!=userInfo[0].bodyType:}} class="list-group-item list-group-item-danger" {{pass}}> Bodytype  </li>
+          <li {{if myInfo.skinTone==userInfo[0].skinTone:}} class="list-group-item list-group-item-success" {{pass}}{{if myInfo.skinTone!=userInfo[0].skinTone:}} class="list-group-item list-group-item-danger" {{pass}}> Skin Tone  </li>
+          <li {{if myInfo.smoke==userInfo[0].smoke:}} class="list-group-item list-group-item-success" {{pass}}{{if myInfo.smoke!=userInfo[0].smoke:}} class="list-group-item list-group-item-danger" {{pass}}> Smoke  </li>
+          <li {{if myInfo.drink==userInfo[0].drink:}} class="list-group-item list-group-item-success" {{pass}}{{if myInfo.drink!=userInfo[0].drink:}} class="list-group-item list-group-item-danger" {{pass}}> Drink  </li>
+          <li {{if myInfo.diet==userInfo[0].diet:}} class="list-group-item list-group-item-success" {{pass}}{{if myInfo.diet!=userInfo[0].diet:}} class="list-group-item list-group-item-danger" {{pass}}> Diet  </li>
+        </ul>
+      </div>
+      <div class="col-md-6 panel-body">
+        <ul class="list-group">
+          <li {{if userIntr.Reading==myIntr.Reading:}} class="list-group-item list-group-item-success" {{pass}}
+          {{if userIntr.Reading!=myIntr.Reading:}} class="list-group-item list-group-item-danger" {{pass}}> Reading  </li>
+          <li {{if userIntr.Travelling==myIntr.Travelling:}} class="list-group-item list-group-item-success" {{pass}}
+          {{if userIntr.Travelling!=myIntr.Travelling:}} class="list-group-item list-group-item-danger" {{pass}}> Travelling  </li>
+          <li {{if userIntr.Music==myIntr.Music:}} class="list-group-item list-group-item-success" {{pass}}
+          {{if userIntr.Music!=myIntr.Music:}} class="list-group-item list-group-item-danger" {{pass}}> Music  </li>
+          <li {{if userIntr.Movies==myIntr.Movies:}} class="list-group-item list-group-item-success" {{pass}}
+          {{if userIntr.Movies!=myIntr.Movies:}} class="list-group-item list-group-item-danger" {{pass}}> Movies  </li>
+          <li {{if userIntr.Fitness==myIntr.Fitness:}} class="list-group-item list-group-item-success" {{pass}}
+          {{if userIntr.Fitness!=myIntr.Fitness:}} class="list-group-item list-group-item-danger" {{pass}}> Fitness  </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

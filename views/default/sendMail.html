@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<div class="page-header">
+  <h1>Send Mail <small>fill both fields </small><div class="glyphicon glyphicon-check"></div></h1>
+</div>
+<ol class="breadcrumb">
+  <li><a href="{{=URL('default','premiumProfile',args=request.args)}}">Back</a></li>
+  <li class="active"> Send Mail</li>
+</ol>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">From {{=fname}} {{=lname}} <div class="glyphicon glyphicon-user"></div></h3>
+  </div>
+  <div class="panel-body">
+    {{=form}}
+  </div>
+</div>
+

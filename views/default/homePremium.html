@@ -9,19 +9,18 @@
 	{{i=0}}
 	{{while i<len(mIds):}}
 		{{row=db(db.auth_user.id==mIds[i]).select().first()}}
-		{{=row.first_name}}
-		{{=mCount[i]}}
+
 	  	<a href="{{=URL('default','freeProfile',args=[row.id])}}">
 	  		<div class="col-sm-6 col-md-3">
 			    <div class="thumbnail">
 			      <img src="/iConnect/default/download/{{=row.pic}}" alt="...">
 			      	<div class="caption">
 				        <h3>{{=row.first_name}} {{=row.last_name}}</h3>
+				        <h3 class="pull-right"> {{=((mCount[i]/10.0)*100)}}%</h3>
 				        <p>{{=row.religion}},{{=row.caste}}</p>
 				        <p>{{=row.city}}</p>
-				        <p><a href="#"><div class="glyphicon glyphicon-remove-circle"></div></a></p>
-				    </div>
-			    </div>
+				         </div>
+			    	</div>
 			</div>
 		</a>
 		{{i=i+1}}
