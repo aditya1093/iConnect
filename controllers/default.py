@@ -220,18 +220,37 @@ def payment():
 
 #handling likes
 def onLike():
-    row = db(db.auth_user.id==request.args[0]).select().first()
-    likes=row.likes
-    likes=likes+1
-    row.update_record(likes=likes)
+    lId=request.args[0]
+    userId=auth.user.id
+
+    rows =db((db.likesTable.userId==userId) & (db.likesTable.lId==lId)).select()
+    if len(rows)==0:
+        db.likesTable.insert(userId=userId,lId=lId)
+        response.flash='U liked this profile'
+    else:
+        response.flash='U already liked this profiles'
+    
+
+    rows1 = db(db.likesTable.lId==lId).select()
+    likes=len(rows1)
     return " "+str(likes)
+
 
 #handling spams
 def onSpam():
-    row = db(db.auth_user.id==request.args[0]).select().first()
-    spams=row.spams
-    spams=spams+1
-    row.update_record(spams=spams)
+    sId=request.args[0]
+    userId=auth.user.id
+
+    rows =db((db.spamTable.userId==userId) & (db.spamTable.sId==sId)).select()
+    if len(rows)==0:
+        db.spamTable.insert(userId=userId,sId=sId)
+        response.flash='U spamed this profile'
+    else:
+        response.flash='U already spamed this profiles'
+    
+
+    rows1 = db(db.spamTable.sId==sId).select()
+    spams=len(rows1)
     return " "+str(spams)
 
 

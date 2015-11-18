@@ -17,6 +17,14 @@
     <a href="#" class="thumbnail">
       <img src="/iConnect/default/download/{{=userInfo[0].pic}}" alt="...">
     </a>
+    <div>
+      <div class="center">
+        <p>
+          <button onclick="ajax('{{=URL('default','onLike',args=[userInfo[0].id])}}',[],'likeCount')" type="button" class="btn btn-success"><div id="likeCount" class="glyphicon glyphicon-heart"></button>
+          <button onclick="ajax('{{=URL('default','onSpam',args=[userInfo[0].id])}}',[],'spamCount')" type="button" class="btn btn-warning"><div id="spamCount" class="glyphicon glyphicon-ban-circle"></button>
+        </p>
+      </div>
+    </div>  
   </div>
   <div class="col-md-9">
   	<div class="panel panel-success">

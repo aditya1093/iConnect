@@ -31,4 +31,14 @@ db.define_table('WishlistTable',
 	Field('wId','string')
 	)
 
+db.define_table('likesTable',
+	Field('lId','string'),
+	Field('userId','string')
+	)
+db.define_table('spamTable',
+	Field('sId','string'),
+	Field('userId','string')
+	)
+	
+
 
