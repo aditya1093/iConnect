@@ -5,7 +5,11 @@
 </ol>
 
 <div class="page-header">
-  <h1>{{=userInfo[0].first_name}} {{=userInfo[0].last_name}} </h1>
+  <h1>{{=userInfo[0].first_name}} {{=userInfo[0].last_name}} 
+  {{if auth.user.premium=='1':}}
+  <button onclick="ajax('{{=URL('default','addToWishlist',args=[userInfo[0].id])}}',[])" type="button" class="btn btn-primary"><div class="glyphicon glyphicon-plus"> Wishlist</button>
+  {{pass}}
+  </h1>
 </div>
 
 <div class="row">

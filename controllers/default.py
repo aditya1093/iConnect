@@ -36,6 +36,8 @@ def user():
 #home page for a free user
 @auth.requires_login()
 def homeFree():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
     message="hello. dis is your home page"
     row=db(db.auth_user.id==auth.user.id).select().first()
     if row.premium=='1':
@@ -144,6 +146,8 @@ def homePremium():
 #profile view of a free user 
 @auth.requires_login()
 def myProfileFree():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
     row=db(db.auth_user.id==auth.user.id).select().first()
     if row.premium=='1':
         redirect(URL('default','myProfilePremium'))
@@ -185,6 +189,8 @@ def myValidation(form):
 
 @auth.requires_login()
 def goPremium():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
     form=SQLFORM(db.Interests)
 
     if form.process(onvalidation=myValidation).accepted:
@@ -203,9 +209,12 @@ def goPremium():
 
 
 
+
 #making dummy payment
 @auth.requires_login()
 def payment():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
     return locals()
 
 
@@ -224,6 +233,55 @@ def onSpam():
     spams=spams+1
     row.update_record(spams=spams)
     return " "+str(spams)
+
+
+#wishlist 
+@auth.requires_login()
+def wishList():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
+    if auth.user.premium=='0':
+        session.flash="You are a Free User. Upgrade to Premium"
+        redirect(URL('default','payment'))
+
+    rows=db(db.WishlistTable.userId==auth.user.id).select()
+    myList=[]
+    for row in rows:
+        myList.append(row.wId)
+    myInfo=auth.user
+
+    return locals()
+
+
+#add users to wishList
+def addToWishlist():
+    wId=request.args[0]
+    userId=auth.user.id
+
+    rows =db((db.WishlistTable.userId==userId) & (db.WishlistTable.wId==wId)).select()
+    if len(rows)==0:
+        db.WishlistTable.insert(userId=userId,wId=wId)
+        response.flash='Added to Wishlist'
+    else:
+        response.flash="Already in yourt Wishlist"
+
+
+
+#admin begin ********
+
+def admin():
+    user_table = None
+    interests_table = None
+    if request.args(0) == "auth_user":
+        user_table = SQLFORM.smartgrid(db.auth_user)
+    elif request.args(0) == "interests" or request.args(0) == "Interests":
+        interests_table = SQLFORM.smartgrid(db.Interests)
+    return locals()
+
+
+#admin end ****
+
+
 
 #send maild
 def sendMail():

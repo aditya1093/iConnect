@@ -26,4 +26,9 @@ db.define_table('Interests',
 
 
 
+db.define_table('WishlistTable',
+	Field('userId',readable=False,writable=False),
+	Field('wId','string')
+	)
+
 

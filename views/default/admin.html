@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+<h2>Admin interface</h2>
+<hr>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel">
+		<a class="btn btn-success" href="{{=URL('default','admin/auth_user')}}">Users</a>
+		<a class="btn btn-success" href="{{=URL('default','admin/interests')}}">Interests</a>
+		</div>
+	</div>
+</div>
+{{ if user_table :}}
+<h3>Users</h3>
+<hr>
+{{=user_table}}
+{{pass}}
+{{ if interests_table :}}
+<h3>Interests</h3>
+<hr>
+{{=interests_table}}
+{{pass}}
