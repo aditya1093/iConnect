@@ -271,6 +271,41 @@ def wishList():
 
     return locals()
 
+#full list
+@auth.requires_login()
+def fullList():
+    if auth.user.first_name=='admin':
+        redirect(URL('default','admin'))
+    if auth.user.premium=='0':
+        session.flash="You are a Free User. Upgrade to Premium"
+        redirect(URL('default','payment'))
+
+    users=db(db.auth_user.gender!=auth.user.gender).select()
+    userList=[]
+    likeCount=[]
+    for i in users:
+        userList.append(i.id)
+        likes=db(db.likesTable.lId==i.id).select()
+        likeCount.append(len(likes))
+
+    i=0
+    while i<len(userList):
+        j=0
+        while j<len(userList)-1:
+            if likeCount[j]<likeCount[j+1]:
+                temp=likeCount[j]
+                likeCount[j]=likeCount[j+1]
+                likeCount[j+1]=temp
+
+                temp=userList[j]
+                userList[j]=userList[j+1]
+                userList[j+1]=temp
+            j=j+1
+        i=i+1
+
+
+    return locals()
+
 
 #add users to wishList
 def addToWishlist():

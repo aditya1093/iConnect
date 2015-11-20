@@ -102,7 +102,7 @@ mail.settings.server = 'smtp.gmail.com:587'
 mail.settings.sender = 'subash.k3110@gmail.com'
 mail.settings.login = 'subash.k3110@gmail.com:xjpwwfdzrhfodwym'
 
-#if mail.send(to=['singhal.abhi0009@gmail.com'],subject='test',message='hello'):
+#if mail.send(to=['subash.k3110@gmail.com'],subject='test',message='hello'):
  #   response.flash = 'email sent'
 #else:
  #       response.flash = 'sent failed'
