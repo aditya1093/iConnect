@@ -326,10 +326,14 @@ def addToWishlist():
 def admin():
     user_table = None
     interests_table = None
+    spams_table = None
     if request.args(0) == "auth_user":
         user_table = SQLFORM.smartgrid(db.auth_user)
     elif request.args(0) == "interests" or request.args(0) == "Interests":
         interests_table = SQLFORM.smartgrid(db.Interests)
+    elif request.args(0) == "spams" or request.args(0) == "Spams":
+        spams_table = SQLFORM.smartgrid(db.spamTable)
+
     return locals()
 
 

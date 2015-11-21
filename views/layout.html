@@ -68,7 +68,9 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               {{if auth.user and auth.user.premium=='0':}}
+              {{if auth.user.first_name!='admin':}}
                 <a href="{{=URL('default','payment')}}">Go Premium</a>
+              {{pass}}
               {{pass}}
             </li>
             {{='auth' in globals() and auth.navbar('Welcome',mode='dropdown') or ''}}

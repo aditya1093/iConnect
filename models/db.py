@@ -70,7 +70,7 @@ auth.settings.extra_fields['auth_user']=[
     Field('city',requires=IS_NOT_EMPTY()),
     Field('country',requires=IS_NOT_EMPTY()),
     Field('phoneNo',requires=IS_NOT_EMPTY()),
-    Field('pic','upload'),
+    Field('pic','upload',requires=IS_NOT_EMPTY()),
     Field('height','double',requires=IS_NOT_EMPTY()),
     Field('bodyType',requires=IS_IN_SET(('Slim','Athletic','Average','Heavy'))),
     Field('skinTone',requires=IS_IN_SET(('Very Fair','Fair','Weatish','Dark'))),

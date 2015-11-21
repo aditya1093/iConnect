@@ -24,12 +24,15 @@ response.google_analytics_id = None
 ## this is the main application menu add/remove items as required
 #########################################################################
 
-response.menu = [
-    (T('Home'), False, URL('default', 'homeFree'), []),
-    (T('My Profile'),False, URL('default','myProfileFree'),[]),
-    (T('My Wishlist'),False,URL('default','wishList'),[]),
-    (T('Full List'),False,URL('default','fullList'),[])
-]
+response.menu = []
+
+if auth.user!=None:
+	if auth.user.first_name!='admin':
+		response.menu.append((T('Home'), False, URL('default', 'homeFree'), []))
+		response.menu.append((T('My Profile'),False, URL('default','myProfileFree'),[]))
+		response.menu.append((T('My Wishlist'),False,URL('default','wishList'),[]))
+		response.menu.append((T('Full List'),False,URL('default','fullList'),[]))
+
 
 DEVELOPMENT_MENU = True
 

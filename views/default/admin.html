@@ -6,6 +6,7 @@
 		<div class="panel">
 		<a class="btn btn-success" href="{{=URL('default','admin/auth_user')}}">Users</a>
 		<a class="btn btn-success" href="{{=URL('default','admin/interests')}}">Interests</a>
+		<a class="btn btn-success" href="{{=URL('default','admin/spams')}}">Spams Table</a>
 		</div>
 	</div>
 </div>
@@ -18,4 +19,9 @@
 <h3>Interests</h3>
 <hr>
 {{=interests_table}}
+{{pass}}
+{{ if spams_table :}}
+<h3>Spam Table</h3>
+<hr>
+{{=spams_table}}
 {{pass}}

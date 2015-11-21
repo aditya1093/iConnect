@@ -24,6 +24,34 @@
           <button onclick="ajax('{{=URL('default','onSpam',args=[userInfo[0].id])}}',[],'spamCount')" type="button" class="btn btn-warning"><div id="spamCount" class="glyphicon glyphicon-ban-circle"></button>
         </p>
       </div>
+      {{if auth.user.premium=='1':}}
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div class="glyphicon glyphicon-phone"></div> Contact</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item"><div class="glyphicon glyphicon-pushpin"></div> {{ =userInfo[0].email}}</li>
+            <li class="list-group-item"><div class="glyphicon glyphicon-pushpin"></div> {{=userInfo[0].phoneNo}}</li>
+          </ul>
+        </div>
+      </div>
+      {{pass}}
+    </div>
+    <div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><div class="glyphicon glyphicon-envelope"></div> Mail</h3>
+
+        </div>
+        <div class="panel-body">
+          <div class="center">
+        <p>
+          <a href="{{=URL('default','sendMail',args=[userInfo[0].id])}}"><button type="button" class="btn btn-info"><div class="glyphicon glyphicon-pencil"></div> Contact {{=userInfo[0].first_name}}</button></a>
+        </p>
+      </div>
+        </div>
+      </div>
     </div>  
   </div>
   <div class="col-md-9">
