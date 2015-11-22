@@ -146,7 +146,7 @@ def homePremium():
 #profile view of a free user 
 @auth.requires_login()
 def myProfileFree():
-    if auth.user.first_name=='admin':
+    if auth.user.first_name=='  admin':
         redirect(URL('default','admin'))
     row=db(db.auth_user.id==auth.user.id).select().first()
     if row.premium=='1':
